@@ -1,10 +1,10 @@
-<h1>Add post</h1>
+<h1>Edit post</h1>
 <% if @post.errors.any? %>
     <% @post.errors.full_messages.each do |msg| %>
         <%= msg %>
     <% end %>
 <% end %>
-<%= form_for :post, url: posts_path do |f| %>
+<%= form_for :post, url: post_path(@post), method: :patch do |f| %>
     <p>
         <%= f.label :title %><br/>
         <%= f.text_field(:title, {:class => 'form-control'}) %>
