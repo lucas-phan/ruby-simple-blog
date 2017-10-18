@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
-    root 'posts#index', as: 'home'
 
-    resources :posts do
-        resources :comments
+    scope "(:locale)", locale: /#{I18n.available_locales.json("|")}/ do
+        root 'posts#index', as: 'home'
+        resources :posts do
+            resources :comments
+        end
+
+        get 'about' => 'pages#about', as: 'about'
     end
-
-    get 'about' => 'pages#about', as: 'about'
-
     #Api
     namespace 'api' do
         namespace 'v1' do

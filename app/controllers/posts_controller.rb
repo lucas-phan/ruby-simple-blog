@@ -1,5 +1,14 @@
 class PostsController < ApplicationController
+    before_action :set_locale
     http_basic_authenticate_with name: "chinhdung", password: "12345", except: [:index, :show]
+
+    def set_locale
+        I18n.locale = params[:locale] || I18n.default_local
+    end
+
+    def default_url_options(options = {})
+        {locale: I18n.locale}.merge options
+    end
 
     def index
         @posts = Post.all
