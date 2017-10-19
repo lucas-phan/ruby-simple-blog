@@ -1,7 +1,7 @@
 <h1><%= t("create_post") %></h1>
 <% if @post.errors.any? %>
     <% @post.errors.full_messages.each do |msg| %>
-        <%= msg %>
+        <p class="alert alert-danger"><%= msg %></p>
     <% end %>
 <% end %>
 <%= form_for :post, url: posts_path do |f| %>

@@ -15,3 +15,14 @@ vi:
   body: "Nội dung"
   title: "Tiêu đề"
   confirm_delete: "Bạn có muốn xóa?"
+
+  activerecord:
+      errors:
+          models:
+              post:
+                  attributes:
+                      title:
+                          blank: "Tiêu đề không để trống"
+                          too_short: "Tiêu đề quá ngắn (Tiêu đề lớn hơn 5 kí tự)"
+                      body:
+                          blank: "Nội dung không để trống"
