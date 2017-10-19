@@ -1,4 +1,4 @@
-<h1>Add post</h1>
+<h1><%= t("create_post") %></h1>
 <% if @post.errors.any? %>
     <% @post.errors.full_messages.each do |msg| %>
         <%= msg %>
@@ -6,15 +6,15 @@
 <% end %>
 <%= form_for :post, url: posts_path do |f| %>
     <p>
-        <%= f.label :title %><br/>
+        <%= f.label t("title") %><br/>
         <%= f.text_field(:title, {:class => 'form-control'}) %>
 
     </p>
     <p>
-        <%= f.label :body %>
+        <%= f.label t("body") %>
         <%= f.text_area(:body, {:class => 'form-control'}) %>
     </p>
     <p>
-        <%= f.submit({:class => 'btn btn-success'}) %>
+        <%= f.submit(t("create_post"), {:class => 'btn btn-success'}) %>
     </p>
 <% end %>

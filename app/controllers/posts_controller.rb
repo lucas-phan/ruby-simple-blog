@@ -3,7 +3,7 @@ class PostsController < ApplicationController
     http_basic_authenticate_with name: "chinhdung", password: "12345", except: [:index, :show]
 
     def set_locale
-        I18n.locale = params[:locale] || I18n.default_local
+        I18n.locale = params[:locale] || I18n.default_locale
     end
 
     def default_url_options(options = {})

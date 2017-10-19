@@ -1,4 +1,4 @@
-<h1>Edit post</h1>
+<h1><%= t("edit_post") %></h1>
 <% if @post.errors.any? %>
     <% @post.errors.full_messages.each do |msg| %>
         <%= msg %>
@@ -6,15 +6,15 @@
 <% end %>
 <%= form_for :post, url: post_path(@post), method: :patch do |f| %>
     <p>
-        <%= f.label :title %><br/>
+        <%= f.label t("title") %><br/>
         <%= f.text_field(:title, {:class => 'form-control'}) %>
 
     </p>
     <p>
-        <%= f.label :body %>
+        <%= f.label t("body") %>
         <%= f.text_area(:body, {:class => 'form-control'}) %>
     </p>
     <p>
-        <%= f.submit({:class => 'btn btn-success'}) %>
+        <%= f.submit(t("edit_post"), {:class => 'btn btn-success'}) %>
     </p>
 <% end %>

@@ -95,16 +95,24 @@ body {
       <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right" role="tablist">
-          <li role="presentation" class="active">
-              <%= link_to "Home", home_path %>
+          <li role="presentation" >
+              <%= link_to t("home"), home_path %>
           </li>
 
           <li role="presentation">
-              <%= link_to "Create", new_post_path %>
+              <%= link_to t("create"), new_post_path %>
+          </li>
+
+          <li role="presentation">
+              <%= link_to "En", locale: :en %>
+          </li>
+
+          <li role="presentation">
+              <%= link_to "Vi", locale: :vi %>
           </li>
 
         </ul>
-        <h3 class="text-muted">Simple blog</h3>
+        <h3 class="text-muted"> <%= link_to t("simple_blog"), home_path %></h3>
       </div>
 
       <!-- <div class="jumbotron">
@@ -117,7 +125,7 @@ body {
       </div>
 
       <div class="footer">
-        <p>&copy; Company 2014</p>
+        <p>&copy; <%= t("company") %> 2014</p>
       </div>
 
     </div> <!-- /container -->

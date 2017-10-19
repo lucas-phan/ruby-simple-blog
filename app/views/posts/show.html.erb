@@ -1,9 +1,9 @@
 <h2><%= @post.title %></h2>
 <p><%= @post.body %></p>
-<%= link_to "Edit", edit_post_path(@post), :class => "btn btn-primary" %>
-<%= link_to "Delete", post_path(@post),
+<%= link_to t("edit"), edit_post_path(@post), :class => "btn btn-primary" %>
+<%= link_to t("delete"), post_path(@post),
             method: :delete,
-            data: {confirm: "Are you sure?"},
+            data: {confirm: t("confirm_delete")},
             :class => "btn btn-danger" %>
 
 <hr>

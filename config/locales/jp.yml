@@ -29,20 +29,5 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
-  simple_blog: "Simple blog"
-  home: "Home"
-  create: "Create"
-  create_post: "Create post"
-  company: "Company"
-  read_more: "Read more"
-  comments: "Comments"
-  edit: "Edit"
-  edit_post: "Edit post"
-  delete: "Delete"
-  add_comment: "Add comment"
-  username: "User name"
-  body: "Body"
-  title: "Title"
-  confirm_delete: "Are you sure?"
+jp:
+  hello: "こんにちは"
