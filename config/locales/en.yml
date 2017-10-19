@@ -26,3 +26,6 @@ en:
                           too_short: "Title is too short (minium is 5 characters) tyhrhtr"
                       body:
                           blank: "Body can't be blank"
+              comment:
+                  attributes:
+                      title: "Title can't be blank"
