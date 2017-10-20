@@ -16,6 +16,8 @@ vi:
   title: "Tiêu đề"
   confirm_delete: "Bạn có muốn xóa?"
 
+
+  #validates database
   activerecord:
       errors:
           models:

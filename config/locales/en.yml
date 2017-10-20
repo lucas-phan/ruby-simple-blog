@@ -16,6 +16,10 @@ en:
   title: "Title"
   confirm_delete: "Are you sure?"
 
+  #message
+  no_post: "No data in here, Please comback home page"
+
+  #validates database
   activerecord:
       errors:
           models:

@@ -9,8 +9,13 @@ module Api
             end
 
             def show
-                post = Post.find(params[:id])
-                render json: {status: 'success', message: 'Loaded posts', data: post}, status: :ok
+                begin
+                    post = Post.find(params[:id])
+                    render json: {status: 'success', message: 'Loaded posts', data: post}, status: :ok
+                rescue ActiveRecord::RecordNotFound => e
+                    render json: {status: 'error', message: e.to_s, data: post}, status: :not_found
+                end
+
             end
 
             def create
@@ -23,21 +28,38 @@ module Api
             end
 
             def destroy
-                post = Post.find(params[:id])
-                if post.destroy
-                    render json: {status: 'success', message: 'Deleted post', data: post}, status: :ok
-                else
-                    render json: {status: 'error', message: 'No post', data: post}, status: :unprocessable_entity
-                end
+                # begin
+                    post = Post.find(params[:id])
+                    begin
+                        destroy_post = post.destroy
+                        if destroy_post
+                            render json: {status: 'success', message: 'Deleted post', data: post}, status: :ok
+                        else
+                            render json: {status: 'error', message: 'Can not delete post', data: post}, status: :not_found
+                        end
+                    rescue ActiveRecord::RecordNotDestroyed => e
+                        render json: {status: 'error', message: e.to_s, data: post}, status: :not_found
+                    end
+                # rescue ActiveRecord::RecordNotFound => e
+                #     render json: {status: 'error', message: e.to_s, data: post}, status: :not_found
+                # end
+
+
             end
 
             def update
-                post = Post.find(params[:id])
-                if post.update_attributes(post_params)
-                    render json: {status: 'success', message: 'Updated post', data: post}, status: :ok
-                else
-                    render json: {status: 'error', message: 'Not update post', data: post.errors}, status: :unprocessable_entity
+                begin
+                    post = Post.find(params[:id])
+                    if post.update_attributes(post_params)
+                        render json: {status: 'success', message: 'Updated post', data: post}, status: :ok
+                    else
+                        render json: {status: 'error', message: 'Not update post', data: post.errors}, status: :unprocessable_entity
+                    end
+                rescue ActiveRecord::RecordNotFound => e
+                    render json: {status: 'error', message: e.to_s, data: post}, status: :not_found
                 end
+
+
             end
 
             private def post_params
