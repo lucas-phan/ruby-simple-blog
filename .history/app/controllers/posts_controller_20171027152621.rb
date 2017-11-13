@@ -12,13 +12,15 @@ class PostsController < ApplicationController
 
   def index
       @posts = Post.all
-      Comment.create(username: 'chinhdung', body: 'hello crontab', post_id: 7)
   end
 
   def show
       @post = Post.find(params[:id])
   end
 
+  def
+    @post = true
+  end
   def new
       @post = Post.new
   end

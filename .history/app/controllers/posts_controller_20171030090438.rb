@@ -12,7 +12,6 @@ class PostsController < ApplicationController
 
   def index
       @posts = Post.all
-      Comment.create(username: 'chinhdung', body: 'hello crontab', post_id: 7)
   end
 
   def show
