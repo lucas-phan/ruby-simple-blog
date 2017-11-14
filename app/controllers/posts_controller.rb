@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_locale
+  protect_from_forgery prepend: true
   http_basic_authenticate_with name: "chinhdung", password: "12345", except: [:index, :show]
 
   def set_locale
